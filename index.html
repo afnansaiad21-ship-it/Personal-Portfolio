@@ -1,0 +1,402 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Mohammad Afnan Saiad</title>
+  <meta name="description" content="Mohammad Afnan Saiad — pharmaceutical scientist working in formulation, analytical development and quality. M.Sc. Industrial Pharmaceutics, Queen's University Belfast.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #f7f6f2;
+      --surface: #ffffff;
+      --text: #1c2226;
+      --muted: #5b666d;
+      --line: #e2e0d8;
+      --accent: #0f6e6a;
+      --accent-soft: #e1f0ee;
+      --shadow: 0 1px 2px rgba(20, 30, 35, .04), 0 8px 24px rgba(20, 30, 35, .05);
+    }
+    @media (prefers-color-scheme: dark) {
+      :root:not([data-theme="light"]) {
+        --bg: #12171a;
+        --surface: #1a2125;
+        --text: #e6eaec;
+        --muted: #9aa6ad;
+        --line: #2a3338;
+        --accent: #5cc4bc;
+        --accent-soft: #1d3634;
+        --shadow: none;
+      }
+    }
+    :root[data-theme="dark"] {
+      --bg: #12171a;
+      --surface: #1a2125;
+      --text: #e6eaec;
+      --muted: #9aa6ad;
+      --line: #2a3338;
+      --accent: #5cc4bc;
+      --accent-soft: #1d3634;
+      --shadow: none;
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; scroll-padding-top: 72px; }
+    body {
+      margin: 0;
+      background: var(--bg);
+      color: var(--text);
+      font: 16px/1.65 "Inter", system-ui, -apple-system, "Segoe UI", sans-serif;
+      -webkit-font-smoothing: antialiased;
+    }
+    a { color: var(--accent); text-decoration-thickness: 1px; text-underline-offset: 3px; }
+    h1, h2, h3 { font-family: "Fraunces", Georgia, serif; font-weight: 600; line-height: 1.2; margin: 0; }
+    p { margin: 0 0 1em; }
+    ul { margin: 0; padding-left: 1.2em; }
+    li { margin-bottom: .4em; }
+    li::marker { color: var(--accent); }
+
+    .wrap { max-width: 1040px; margin: 0 auto; padding: 0 24px; }
+
+    /* Nav */
+    header.nav {
+      position: sticky; top: 0; z-index: 10;
+      background: color-mix(in srgb, var(--bg) 88%, transparent);
+      backdrop-filter: blur(8px);
+      border-bottom: 1px solid var(--line);
+    }
+    .nav .wrap { display: flex; align-items: center; justify-content: space-between; height: 60px; gap: 16px; }
+    .brand { font-family: "Fraunces", Georgia, serif; font-weight: 600; font-size: 1.1rem; color: var(--text); text-decoration: none; white-space: nowrap; }
+    .nav nav { display: flex; gap: 22px; align-items: center; }
+    .nav nav a { color: var(--muted); text-decoration: none; font-size: .92rem; font-weight: 500; }
+    .nav nav a:hover { color: var(--text); }
+    .theme-btn {
+      border: 1px solid var(--line); background: var(--surface); color: var(--text);
+      width: 34px; height: 34px; border-radius: 50%; cursor: pointer; display: grid; place-items: center;
+    }
+    .theme-btn svg { width: 16px; height: 16px; }
+
+    /* Hero */
+    .hero { padding: 88px 0 72px; }
+    .hero .wrap { display: grid; grid-template-columns: 1.4fr 1fr; gap: 48px; align-items: center; }
+    .eyebrow { color: var(--accent); font-weight: 600; font-size: .85rem; letter-spacing: .08em; text-transform: uppercase; margin-bottom: 14px; }
+    .hero h1 { font-size: clamp(2.3rem, 5vw, 3.6rem); letter-spacing: -.01em; margin-bottom: 18px; }
+    .hero .lead { font-size: 1.15rem; color: var(--muted); max-width: 34em; }
+    .meta { display: flex; flex-wrap: wrap; gap: 8px 18px; color: var(--muted); font-size: .92rem; margin: 22px 0 28px; }
+    .meta span { display: inline-flex; align-items: center; gap: 6px; }
+    .meta svg { width: 15px; height: 15px; color: var(--accent); }
+    .actions { display: flex; flex-wrap: wrap; gap: 12px; }
+    .btn {
+      display: inline-flex; align-items: center; gap: 8px;
+      padding: 11px 20px; border-radius: 999px; font-weight: 600; font-size: .95rem; text-decoration: none;
+      border: 1px solid var(--accent);
+    }
+    .btn.primary { background: var(--accent); color: var(--bg); }
+    .btn.ghost { color: var(--accent); }
+    .btn:hover { filter: brightness(1.08); }
+    .hero-art { width: 100%; max-width: 360px; justify-self: center; color: var(--accent); }
+
+    /* Sections */
+    section { padding: 64px 0; border-top: 1px solid var(--line); }
+    .sec-head { display: grid; grid-template-columns: 220px 1fr; gap: 32px; }
+    .sec-head h2 { font-size: 1.6rem; }
+    .sec-head .label { color: var(--muted); font-size: .9rem; margin-top: 6px; }
+
+    .card {
+      background: var(--surface); border: 1px solid var(--line); border-radius: 14px;
+      padding: 26px 28px; box-shadow: var(--shadow);
+    }
+    .stack > * + * { margin-top: 18px; }
+
+    /* Research feature */
+    .feature h3 { font-size: 1.35rem; margin-bottom: 6px; }
+    .feature .where { color: var(--muted); font-size: .92rem; margin-bottom: 16px; }
+    .chips { display: flex; flex-wrap: wrap; gap: 8px; margin: 18px 0 0; padding: 0; list-style: none; }
+    .chips li { margin: 0; background: var(--accent-soft); color: var(--accent); font-size: .82rem; font-weight: 600; padding: 5px 12px; border-radius: 999px; }
+    .stats { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; margin: 20px 0 22px; }
+    .stat { border: 1px solid var(--line); border-radius: 12px; padding: 14px 16px; }
+    .stat b { display: block; font-family: "Fraunces", Georgia, serif; font-size: 1.5rem; color: var(--accent); font-weight: 600; }
+    .stat span { font-size: .85rem; color: var(--muted); }
+
+    /* Timeline */
+    .item { display: grid; grid-template-columns: 1fr auto; gap: 4px 16px; }
+    .item h3 { font-size: 1.12rem; }
+    .item .org { color: var(--muted); font-size: .93rem; grid-column: 1; }
+    .item .date { color: var(--accent); font-size: .85rem; font-weight: 600; white-space: nowrap; grid-row: 1; grid-column: 2; align-self: center; }
+    .item .body { grid-column: 1 / -1; margin-top: 12px; }
+    .item .body p:last-child { margin-bottom: 0; }
+
+    /* Skills */
+    .skills { display: grid; grid-template-columns: repeat(2, 1fr); gap: 18px; }
+    .skills h3 { font-family: "Inter", sans-serif; font-size: .8rem; letter-spacing: .08em; text-transform: uppercase; color: var(--muted); margin-bottom: 12px; }
+    .skills .chips { margin: 0; }
+
+    .langs { display: flex; flex-wrap: wrap; gap: 10px; }
+    .langs span { border: 1px solid var(--line); background: var(--surface); padding: 8px 16px; border-radius: 10px; font-weight: 500; }
+
+    /* Contact */
+    .contact { text-align: center; padding: 80px 0; }
+    .contact h2 { font-size: clamp(1.8rem, 4vw, 2.4rem); margin-bottom: 12px; }
+    .contact p { color: var(--muted); max-width: 32em; margin: 0 auto 26px; }
+    .contact .actions { justify-content: center; }
+
+    footer { border-top: 1px solid var(--line); padding: 24px 0; color: var(--muted); font-size: .85rem; text-align: center; }
+
+    @media (max-width: 860px) {
+      .hero { padding: 56px 0 48px; }
+      .hero .wrap { grid-template-columns: 1fr; gap: 32px; }
+      .hero-art { max-width: 240px; order: -1; justify-self: start; }
+      .sec-head { grid-template-columns: 1fr; gap: 20px; }
+      .nav nav a.opt { display: none; }
+    }
+    @media (max-width: 560px) {
+      .wrap { padding: 0 16px; }
+      .nav nav { gap: 14px; }
+      .nav nav a:not(.keep) { display: none; }
+      .card { padding: 20px; }
+      .stats { grid-template-columns: 1fr; }
+      .skills { grid-template-columns: 1fr; }
+      .item { grid-template-columns: 1fr; }
+      .item .date { grid-row: auto; grid-column: 1; }
+    }
+  </style>
+</head>
+<body>
+  <header class="nav">
+    <div class="wrap">
+      <a class="brand" href="#top">M. Afnan Saiad</a>
+      <nav aria-label="Sections">
+        <a class="opt" href="#research">Research</a>
+        <a href="#experience">Experience</a>
+        <a class="opt" href="#education">Education</a>
+        <a href="#skills">Skills</a>
+        <a class="keep" href="#contact">Contact</a>
+        <button class="theme-btn" id="themeBtn" type="button" aria-label="Toggle dark mode">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/></svg>
+        </button>
+      </nav>
+    </div>
+  </header>
+
+  <main id="top">
+    <div class="hero">
+      <div class="wrap">
+        <div>
+          <div class="eyebrow">Pharmaceutical Scientist</div>
+          <h1>Mohammad Afnan Saiad</h1>
+          <p class="lead">I work on formulation, analytical development and quality. My M.Sc. research at Queen's University Belfast focused on paclitaxel nanocrystals for intravenous delivery, from wet-media milling through characterisation, HPLC quantification and stability testing.</p>
+          <div class="meta">
+            <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 21s-7-6.2-7-11.5A7 7 0 0 1 19 9.5C19 14.8 12 21 12 21z"/><circle cx="12" cy="9.5" r="2.5"/></svg>Dublin, Ireland</span>
+            <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3a14 14 0 0 1 0 18M12 3a14 14 0 0 0 0 18"/></svg>EU citizen</span>
+            <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 9l9-5 9 5-9 5-9-5z"/><path d="M7 11.5V16c0 1.5 2.2 3 5 3s5-1.5 5-3v-4.5"/></svg>M.Sc. Industrial Pharmaceutics</span>
+          </div>
+          <div class="actions">
+            <a class="btn primary" href="mailto:afnansaiadqub@gmail.com">Get in touch</a>
+            <a class="btn ghost" href="https://www.linkedin.com/in/mohammad-afnan-saiad-5b9813271/" target="_blank" rel="noopener">LinkedIn</a>
+          </div>
+        </div>
+        <!-- Stylised nanocrystal lattice -->
+        <svg class="hero-art" viewBox="0 0 300 300" aria-hidden="true">
+          <g fill="none" stroke="currentColor" stroke-opacity=".35" stroke-width="1.5">
+            <path d="M150 40 L245 95 L245 205 L150 260 L55 205 L55 95 Z"/>
+            <path d="M150 40 L150 150 M245 95 L150 150 M245 205 L150 150 M150 260 L150 150 M55 205 L150 150 M55 95 L150 150"/>
+            <path d="M150 95 L197 122 L197 178 L150 205 L103 178 L103 122 Z" stroke-opacity=".55"/>
+          </g>
+          <g fill="currentColor">
+            <circle cx="150" cy="40" r="7"/><circle cx="245" cy="95" r="7"/><circle cx="245" cy="205" r="7"/>
+            <circle cx="150" cy="260" r="7"/><circle cx="55" cy="205" r="7"/><circle cx="55" cy="95" r="7"/>
+            <circle cx="150" cy="150" r="11"/>
+          </g>
+          <g fill="currentColor" fill-opacity=".45">
+            <circle cx="150" cy="95" r="5"/><circle cx="197" cy="122" r="5"/><circle cx="197" cy="178" r="5"/>
+            <circle cx="150" cy="205" r="5"/><circle cx="103" cy="178" r="5"/><circle cx="103" cy="122" r="5"/>
+          </g>
+        </svg>
+      </div>
+    </div>
+
+    <section id="about">
+      <div class="wrap sec-head">
+        <div><h2>About</h2><div class="label">Profile</div></div>
+        <div>
+          <p>I hold an M.Sc. in Industrial Pharmaceutics from Queen's University Belfast (studies completed September 2026, graduating December 2026) and a B.Pharm from Goa University, awarded First Class with Distinction.</p>
+          <p>My Quality Assurance and Regulatory Affairs coursework gave me a working knowledge of GMP, ICH and regulatory expectations, and I hold a CMI Level 7 certificate in strategic project management and leadership. Before my master's I owned and ran an optical retail business in India for six years, and I now work in UK retail alongside my studies.</p>
+          <p style="margin:0">I'm looking for formulation, analytical, quality or research roles in the pharmaceutical industry.</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="research">
+      <div class="wrap sec-head">
+        <div><h2>Research</h2><div class="label">M.Sc. thesis project</div></div>
+        <div class="card feature">
+          <h3>Surface charge-tailored paclitaxel nanocrystals for intravenous delivery</h3>
+          <div class="where">Paredes Lab, School of Pharmacy, Queen's University Belfast · April – September 2026</div>
+          <p>I produced paclitaxel nanocrystals by wet-media milling, stabilised with Poloxamer 407 plus either Eudragit E100 (cationic) or sodium dodecyl sulphate (anionic), so the two formulations could be compared by surface charge.</p>
+          <div class="stats">
+            <div class="stat"><b>&lt; 200 nm</b><span>particle size achieved</span></div>
+            <div class="stat"><b>30-day</b><span>stability study</span></div>
+            <div class="stat"><b>APS 2026</b><span>poster, 17th PharmSci Conference</span></div>
+          </div>
+          <ul>
+            <li>Characterised the nanocrystals by DLS, FTIR, DSC, TGA, SEM and TEM.</li>
+            <li>Quantified drug content by HPLC and UV spectrophotometry, and designed in vitro release studies (dialysis method, sink conditions).</li>
+            <li>Worked to GLP standards: SOP adherence, laboratory notebooks and traceable record keeping across all experiments.</li>
+          </ul>
+          <ul class="chips">
+            <li>Wet-media milling</li><li>Nanosuspensions</li><li>HPLC</li><li>DLS</li><li>Electron microscopy</li><li>Thermal analysis</li><li>GLP</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section id="experience">
+      <div class="wrap sec-head">
+        <div><h2>Experience</h2><div class="label">Lab, retail and business</div></div>
+        <div class="stack">
+          <article class="card item">
+            <h3>Student Research Intern</h3>
+            <div class="date">Apr 2026 – Sep 2026</div>
+            <div class="org">Paredes Lab, School of Pharmacy, Queen's University Belfast</div>
+            <div class="body"><p>M.Sc. research project on paclitaxel nanocrystal formulation, characterisation and stability. Details are in the <a href="#research">Research</a> section above.</p></div>
+          </article>
+          <article class="card item">
+            <h3>Optical Assistant</h3>
+            <div class="date">Nov 2025 – Present</div>
+            <div class="org">Vision Express, Forestside, Belfast</div>
+            <div class="body">
+              <ul>
+                <li>Advise patients and customers, handle queries and complaints, and keep a high standard of service and professional conduct.</li>
+                <li>Manage stock levels, merchandising and the organisation of the practice.</li>
+                <li>Meet sales and customer satisfaction targets; named Employee of the Month.</li>
+              </ul>
+            </div>
+          </article>
+          <article class="card item">
+            <h3>Owner and Manager</h3>
+            <div class="date">Jul 2019 – Aug 2025</div>
+            <div class="org">AB Times and Opticians, India</div>
+            <div class="body">
+              <ul>
+                <li>Owned and ran an optical retail business, responsible for daily operations, finances, stock control and supplier relationships.</li>
+                <li>Led and trained the sales team on product knowledge and ran in-store promotions to support sales targets.</li>
+                <li>Advised customers on eyewear and lens options and built repeat business through personal, knowledgeable service.</li>
+              </ul>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="education">
+      <div class="wrap sec-head">
+        <div><h2>Education</h2><div class="label">Degrees and certification</div></div>
+        <div class="stack">
+          <article class="card item">
+            <h3>M.Sc. Industrial Pharmaceutics</h3>
+            <div class="date">Sep 2025 – Sep 2026</div>
+            <div class="org">Queen's University Belfast, School of Pharmacy · Graduating December 2026</div>
+            <div class="body">
+              <p>The School of Pharmacy is ranked 19th in the world for Pharmacy and Pharmacology.</p>
+              <p><strong>Modules:</strong> Formulation of Pharmaceutical and Biopharmaceutical Products; Characterisation Methods for Pharmaceutical Products; Pharmaceutical Manufacturing and Emerging Technologies (microfluidics, electrospinning, nanoparticles); Quality Assurance and Regulatory Affairs; Research Skills and Methodology.</p>
+            </div>
+          </article>
+          <article class="card item">
+            <h3>CMI Level 7 Certificate in Strategic Project Management and Leadership</h3>
+            <div class="date">2026</div>
+            <div class="org">Thomas J. Morgan Graduate School, Queen's University Belfast</div>
+          </article>
+          <article class="card item">
+            <h3>Bachelor of Pharmacy, First Class with Distinction</h3>
+            <div class="date">2021 – 2025</div>
+            <div class="org">Goa University, India</div>
+            <div class="body">
+              <p><strong>Coursework:</strong> pharmacokinetics, formulation development, analytical techniques, quality control, regulatory knowledge.</p>
+              <p><strong>Final-year project:</strong> a floating drug delivery system of domperidone maleate, comparing sodium and potassium bicarbonate as effervescent agents.</p>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="skills">
+      <div class="wrap sec-head">
+        <div><h2>Skills</h2><div class="label">Technical and professional</div></div>
+        <div class="skills">
+          <div class="card">
+            <h3>Analytical techniques</h3>
+            <ul class="chips"><li>HPLC</li><li>DLS</li><li>TEM</li><li>SEM</li><li>FTIR</li><li>UV-Vis</li><li>DSC</li><li>TGA</li><li>pH measurement</li></ul>
+          </div>
+          <div class="card">
+            <h3>Formulation</h3>
+            <ul class="chips"><li>Nanocrystals</li><li>Nanosuspensions</li><li>Nanoformulations</li><li>Tablets</li><li>Pellets</li><li>Syrups</li><li>Injectables</li></ul>
+          </div>
+          <div class="card">
+            <h3>Compliance and quality</h3>
+            <ul class="chips"><li>GMP</li><li>GLP</li><li>GDP</li><li>21 CFR</li><li>ICH guidelines</li><li>EMA guidelines</li><li>SOPs</li><li>Stability studies</li></ul>
+          </div>
+          <div class="card">
+            <h3>Software and professional</h3>
+            <ul class="chips"><li>GraphPad Prism</li><li>BioRender</li><li>Microsoft Office</li><li>Medical coding</li><li>Technical writing</li><li>Project management</li><li>Stakeholder communication</li></ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="conferences">
+      <div class="wrap sec-head">
+        <div><h2>Conferences &amp; leadership</h2></div>
+        <div class="card">
+          <ul>
+            <li><strong>Poster presentation</strong>, 17th APS PharmSci Conference, 2026.</li>
+            <li><strong>Attendee</strong>, NIBES Conference, Northern Ireland.</li>
+            <li><strong>Postgraduate School Representative</strong>, School of Pharmacy, Queen's University Belfast (Sep 2025 – Sep 2026): the link between postgraduate students and faculty, passing on feedback to improve the academic experience.</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section id="languages">
+      <div class="wrap sec-head">
+        <div><h2>Languages</h2></div>
+        <div class="langs"><span>English</span><span>French</span><span>Portuguese</span><span>Arabic</span><span>Hindi</span></div>
+      </div>
+    </section>
+
+    <section id="contact" class="contact">
+      <div class="wrap">
+        <h2>Let's talk</h2>
+        <p>Open to formulation, analytical, quality and research roles across Ireland, the UK and the EU.</p>
+        <div class="actions">
+          <a class="btn primary" href="mailto:afnansaiadqub@gmail.com">afnansaiadqub@gmail.com</a>
+          <a class="btn ghost" href="https://www.linkedin.com/in/mohammad-afnan-saiad-5b9813271/" target="_blank" rel="noopener">LinkedIn profile</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="wrap">© <span id="year">2026</span> Mohammad Afnan Saiad</div>
+  </footer>
+
+  <script>
+    (function () {
+      var root = document.documentElement;
+      try {
+        var saved = localStorage.getItem('theme');
+        if (saved) root.setAttribute('data-theme', saved);
+      } catch (e) {}
+      document.getElementById('themeBtn').addEventListener('click', function () {
+        var current = root.getAttribute('data-theme') ||
+          (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+        var next = current === 'dark' ? 'light' : 'dark';
+        root.setAttribute('data-theme', next);
+        try { localStorage.setItem('theme', next); } catch (e) {}
+      });
+      document.getElementById('year').textContent = new Date().getFullYear();
+    })();
+  </script>
+</body>
+</html>
